@@ -9,12 +9,10 @@ class BreweriesController < ApplicationController
       end
   end
 
-  get '/breweries/new' do
-    if session[:user_id]
-      erb :'breweries/create_brewery'
-    else
-      redirect to '/'
-    end
+  post '/breweries/new' do
+    user = User.find_by_id(session[:user_id])
+    @breweries = Breweries.create(:name => params[:brew_name], :location => params[:brew_location], :notes => params[:brew_notes], :user_id => user.id)
+    redirect to "/breweries"
   end
 
 end
