@@ -1,8 +1,6 @@
-class User < ActiveRecord::Base
+class Breweries < ActiveRecord::Base
+  belongs_to :user
 
-  has_secure_password
-
-  has_many :breweries
   extend Slugifiable::ClassMethods
   include Slugifiable::InstanceMethods
 end
