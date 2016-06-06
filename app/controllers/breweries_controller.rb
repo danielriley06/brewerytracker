@@ -7,6 +7,14 @@ class BreweriesController < ApplicationController
       else
         redirect to '/login'
       end
+  end
+
+  get '/breweries/new' do
+    if session[:user_id]
+      erb :'breweries/create_brewery'
+    else
+      redirect to '/'
     end
+  end
 
 end

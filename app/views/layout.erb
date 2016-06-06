@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/bootstrap-responsive.css">
   </head>
   <body>
+    <% if logged_in? %>
     <nav class="navbar navbar-inverse">
          <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -23,18 +24,19 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                <ul class="nav navbar-nav">
-               <% if logged_in? %>
+
                   <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
                   <li><a href="/map">Map <span class="sr-only"></span></a></li>
                   <li><a href="/list">My List <span class="sr-only"></span></a></li>
-               <% else %>
-                  <li><a href="/signup"> Sign Up <span class="sr-only"></span></a></li>
-                  <li><a href="/login"> Sign In <span class="sr-only"></span></a></li>
-               <%end %>
                </ul>
+                  <ul class="nav navbar-nav navbar-right" align="right">
+                    <li><a href="/logout">Log Out</a></li>
+                  </ul>
             </div> <!-- /.navbar-collapse -->
          </div> <!-- /.container-fluid -->
       </nav> <!-- /.navbar -->
+       <% else %>
+       <%end %>
     <div class="container">
       <%= yield %>
     </div>

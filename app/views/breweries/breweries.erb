@@ -1,0 +1,10 @@
+<p> Welcome <%= current_user.username %> </p>
+<a class="btn btn-primary" href="/breweries/new" role="button">Add a Brewery</button></a>
+
+<h2> Breweries Visited </h2>
+
+<% @breweries.each do |breweries| %>
+  <div>
+    <%= breweries.content %>
+  </div>
+<% end %>
