@@ -16,8 +16,12 @@
                   <input type="text" name="brew_name" class="form-control" placeholder="Brewery Name"/>
                </div>
                <div class="form-group">
-                  <label for="BrewLocation">Brewery Location</label>
-                  <input type="text" name="brew_location" class="form-control" placeholder="City and State"/>
+                  <label for="BrewLocation">Brewery City</label>
+                  <input type="text" name="brew_city" class="form-control" placeholder="City"/>
+               </div>
+               <div class="form-group">
+                  <label for="BrewLocation">Brewery State</label>
+                  <input type="text" name="brew_state" class="form-control" placeholder="State Abbreviation"/>
                </div>
                <div class="form-group" rows="3">
                   <label for="BrewNotes">Notes</label>
@@ -40,7 +44,7 @@
    <% @breweries.each do |breweries| %>
    <tr>
       <td><%= breweries.name %></td>
-      <td><%= breweries.location %></td>
+      <td><%= breweries.address %></td>
       <td><%= breweries.notes %></td>
    </tr>
    <% end %>

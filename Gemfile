@@ -10,6 +10,9 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
+gem 'geocoder'
+gem 'json'
+gem 'json_pure'
 
 group :test do
   gem 'rspec'
