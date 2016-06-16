@@ -28,8 +28,8 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(:username => params[:username])
-    if user && user.authenticate(params[:password])
+    user = User.find_by(:username => params[:inputUsername])
+    if user && user.authenticate(params[:inputPassword])
       session[:user_id] = user.id
       redirect "/breweries"
     else
@@ -43,6 +43,21 @@ class UsersController < ApplicationController
       redirect to '/'
     else
       redirect to '/'
+    end
+  end
+
+  get '/account' do
+    user = User.find_by(:username => params[:username])
+    erb :'users/account'
+  end
+
+  post '/account' do
+    user = User.find_by(:username => params[:username])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect "/breweries"
+    else
+      redirect to '/signup'
     end
   end
 
